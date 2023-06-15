@@ -8,7 +8,7 @@
   <title>Roco</title>
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="icon" href="../Roco-yys/images/favicon.ico">
-  
+
 
 </head>
 
@@ -26,6 +26,7 @@
             <font size="4">注册</font>
           </span>
         </div>
+        <form action = "http://localhost:5000/login/1" method = "post">
         <h2 class="h1-text">登录</h2>
         <div class="other-login">
           <img src="static/images/imlogo_b.png" alt="QQ登录">
@@ -38,7 +39,7 @@
                 <font size="5">账号</font>
               </span>
             </div>
-            <input type="text">
+            <input type="text" name='name' id='name'>
           </div>
           <div class="password-form form-item">
             <div class="text-tips">
@@ -49,35 +50,45 @@
                 <font size="4">忘记密码</font>
               </span>
             </div>
-            <input type="password">
+            <input type="password" name='passwd' id='passwd'>
           </div>
-          <button class="btn">登录</button>
+          <p><input type = "submit" value = "登录" /></p>
+        </form>
 
         </div>
+        <form action = "http://localhost:5000/login/0" method = "post">
         <div class="register-form">
           <div class="userform form-item">
             <div class="text-tips">
               <span>账号</span>
             </div>
-            <input type="text">
+            <input type="text" name='name' id='name'>
           </div>
           <div class="password-form form-item">
             <div class="text-tips">
               <span>密码</span>
             </div>
-            <input type="password">
+            <input type="password" name='passwd' id='passwd'>
           </div>
           <div class="password-form form-item">
             <div class="text-tips">
               <span>确认密码</span>
             </div>
-            <input type="password">
+            <input type="password" name='passwd' id='passwd'>
           </div>
-          <button class="btn">注册</button>
+
+          <div class="userform form-item">
+            <div class="text-tips">
+              <span>昵称</span>
+            </div>
+            <input type="text" name='gamename' id='gamename'>
+          </div>
+
+          <p><input type = "submit" value = "注册" /></p>
         </div>
+      </form>
       </div>
     </div>
-  </div>
 </body>
 <script>
   let flag = 1;
