@@ -1,0 +1,208 @@
+/*自己写的*/
+/*
+思路：
+大局观
+HTML写结构
+css写样式
+先HTML布局再写内容
+由外到内div嵌套布局
+*/
+/*最外层的容器开始*/
+* {
+
+  margin:0;
+  
+  padding:0;
+  
+  }
+.roco{
+  width: 100%;
+  max-width: 1920px;
+  min-width: 1200px;
+  /*自动找高*/
+  /*overflow: hidden;*/
+}
+/*最外层的容器结束,限制页面最大最小宽度*/
+/*头部样式开始*/
+.header{
+  position: relative;
+  width: 100%;
+  height:65px;
+  background-color: skyblue;
+  line-height: 65px;
+  text-align: center;
+  
+}
+
+.menu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 179px;
+  height: 65px;
+  background-color: black;
+  
+  
+  /*一行文字垂直居中*/
+  font-size: 12px;
+  color: #fff;
+}
+.logo{
+  top: 0;
+  left: 42%;
+  position: absolute;
+  height:64px;
+   width:300px;
+}
+.author{
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 138px;
+  border-left: 1px solid #dadada;
+  height: 64px;
+  color: #333;
+  font-size: 12px;
+  cursor: pointer;
+}
+.author:hover{
+  color:blue;
+  border-color: 1px solid blue;
+  background-color: #f3f3f3;
+}
+/*头部样式结束*/
+/*banner样式开始*/
+.banner{
+  width: 100%;
+  height: 884px;
+  background-color: burlywood;
+}
+.nav{
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: palegoldenrod;
+  background: url(../images/nav_back_bg_fd2505e.jpg) no-repeat center top ;
+}
+.nav-wrap{
+  position: relative;
+  margin: 0 auto;
+  width: 1180px;
+  height: 60px;
+  line-height: 65px;
+}
+ul.nodots {
+  list-style-type: none;
+}
+.nav-wrap li{
+  float: left;
+  width: 84.28px;
+  list-style-type: none;
+  font-size: 14px;
+  text-align: center;
+}
+.nav-wrap a{
+  color: #fff;
+  
+}
+.nav-active{
+  background: url(../images/nav_bg1_d44f09d.jpg) no-repeat;
+}
+.nav-active>a{
+  color: #000;
+}
+.nav-wrap li:hover{
+  background: url(../images/nav_bg1_d44f09d.jpg) no-repeat;
+}
+.nav-wrap li:hover>a{
+  color: #000;
+}
+.search{
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  width: 18px;
+  height: 19px;
+  background: url(../images/search_b180dd5.webp) no-repeat;
+}
+/*下拉列表*/
+.nav-list{
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 140px;
+  background: url(../images/subnav_bg_5cc9309.jpg) center 0 no-repeat;
+}
+.nav:hover>.nav-list{
+  display: block;
+}
+.banner-box{
+  
+  position: relative;
+  width: 100%;
+  height:784px;
+}
+.banner-box>img{
+  margin-top: -14px;
+  margin-left: 50%;
+  width: 107%;
+  height:820px;
+  transform: translateX(-960px);
+ 
+}
+.banner-bottom{
+  position: absolute;
+  left: 0;
+  bottom: -5%;
+  width: 100%;
+  height: 287px;
+  background: url(../images/bot_head_bg_450ba6b.webp) repeat-x center bottom;
+}
+.banner-logo{
+  position: absolute;
+  left: 150px;
+  top: 143px;
+  width: 228px;
+  height: 77px;
+  background: url(../images/dslogo.png) no-repeat;
+  background-size: 100%;
+}
+.nav-list img{
+  margin:24px 10px 0;
+  width:149.2px;
+  height: 92px;
+  text-align: center;
+}
+/*banner样式结束*/
+/*主体开始*/
+.wrap{
+  width: 1180px;
+  margin: 0 auto;
+
+}
+
+/*主体结束*/
+/*宠物爆料样式开始*/
+.world{
+  position: relative;
+  width: 100%;
+  height: 495px;
+  margin-bottom: 70px;
+  background-color: red;
+}
+.world-title{
+  position: relative;
+  top: 0;
+  left: 0;
+  width:269px;
+  height: 659px;
+  background: url(../images/world.jpg);
+  text-align: center;
+}
+/*宠物爆料样式结束*/
