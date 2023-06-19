@@ -49,7 +49,8 @@ def register():
         conn.commit()
         cursor.close()
         conn.close()
-    return render_template("Rocologin.html", show_login=False)
+        return redirect(url_for("login"))
+    return render_template("Rocoregister.html", show_login=False)
 
 @app.route("/table")
 def table():

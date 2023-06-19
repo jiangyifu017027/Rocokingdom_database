@@ -22,7 +22,6 @@
             <h1>洛克王国信息平台</h1>
           </span>
           <span class="top-tips-span">
-            <a href="register"><font size="4">注册</font></a>
           </span>
         </div>
         <h2 class="h1-text">登录</h2>
@@ -30,33 +29,7 @@
           <img src="../static/images/imlogo_b.png" alt="QQ登录">
           <span>使用QQ登录</span>
         </div>
-        {% if show_login %} <div id="login">
-        <form method = "post">
-        <div class="login-form">
-          <div class="userform form-item">
-            <div class="text-tips">
-              <span>
-                <font size="5">账号</font>
-              </span>
-            </div>
-            <input type="text" name='name' id='name'>
-          </div>
-          <div class="password-form form-item">
-            <div class="text-tips">
-              <span>
-                <font size="5">密码</font>
-              </span>
-              <span class="forgot-password">
-                <font size="4">忘记密码</font>
-              </span>
-            </div>
-            <input type="password" name='passwd' id='passwd'>
-          </div>
-          <p><input type = "submit" value = "登录" /></p>
-        </form>
-        </div>{% endif %}
         </div>
-        {% if not show_login %} <div id="login"></div>
         <form method = "post">
         <div class="register-form">
           <div class="userform form-item">
@@ -88,12 +61,11 @@
           <p><input type = "submit" value = "注册" /></p>
         </div>
       </form>
-      </div>{% endif %}
       </div>
     </div>
 </body>
 <script>
-  let flag = 1;
+  let flag = 0;
   document.querySelector('.top-tips-span').addEventListener('click', function () {
     if (flag) {
       document.querySelector('.content').classList.add("add-class-content");
