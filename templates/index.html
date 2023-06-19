@@ -5,10 +5,194 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roco</title>
-  <link rel="icon" href="static/images/favicon.ico">
-  <link rel="stylesheet" href="static/css/reset.css">
+
+  <link rel="icon" href="../static/images/favicon.ico">
+  <link rel="stylesheet" href="..static/css/reset.css">
   <!--全局样式，优先级最低-->
-  <link rel="stylesheet" href="static/css/yys.css">
+  <link rel="stylesheet" href="../static/css/yys.css">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .shell {
+      width: 100%;
+      position: relative;
+      padding: 80px 0;
+      transition: 0.3s ease 0s;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .shell::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(99, 99, 99, 0.8);
+      content: "";
+    }
+
+    .hheader {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 46px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .timeline {
+      display: flex;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: column;
+      max-width: 700px;
+      position: relative;
+
+    }
+
+    .content-title {
+      font-weight: normal;
+      font-size: 66px;
+      margin: -10px 0 0 0;
+      transition: 0.4s;
+      padding: 0 10px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    .content-desc {
+      margin: 0;
+      font-size: 15px;
+      box-sizing: border-box;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 25px;
+    }
+
+    .timeline:before {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      margin-left: -1px;
+      content: "";
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .item {
+      padding: 40px 0;
+      opacity: 0.3;
+      filter: blur(2px);
+      transition: 0.5s;
+      box-sizing: border-box;
+      width: calc(50% - 40px);
+      display: flex;
+      position: relative;
+      transform: translateY(-80px);
+    }
+
+    .item:before {
+      content: attr(data-text);
+      letter-spacing: 3px;
+      width: 100%;
+      position: absolute;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      border-left: 2px solid rgba(255, 255, 255, 0.5);
+      top: 70%;
+      margin-top: -5px;
+      padding-left: 15px;
+      opacity: 0;
+      right: calc(-100% - 56px);
+      font: 900 20px '';
+      letter-spacing: 5px;
+    }
+
+    .item:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    .item:nth-child(even):before {
+      right: auto;
+      text-align: right;
+      left: calc(-100% - 56px);
+      padding-left: 0;
+      border-left: none;
+      border-right: 2px solid rgba(255, 255, 255, 0.5);
+      padding-right: 15px;
+    }
+
+    .item--active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+
+    }
+
+    .item--active:before {
+      top: 50%;
+      transition: 0.3s all 0.2s;
+      opacity: 1;
+
+    }
+
+    .item--active .content-title {
+      margin: -50px 0 20px 0;
+    }
+
+    .img {
+
+      max-width: 100%;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .footer {
+      padding: 95px 0;
+      text-align: center;
+
+    }
+
+    .footer a {
+      color: #999;
+      display: inline-block;
+    }
+
+    @media only screen and (max-width:767px) {
+      .item {
+        align-self: baseline !important;
+        width: 100%;
+        padding: 0 30px 150px 80px;
+      }
+
+      .item:before {
+        left: 10px !important;
+        padding: 0 !important;
+        top: 50px;
+        text-align: center !important;
+        width: 60px;
+        border: none !important;
+      }
+
+      .item:last-child {
+        padding-bottom: 40px;
+      }
+    }
+
+    @media only screen and (max-width:767px) {
+      .timeline:before {
+        left: 40px
+      }
+
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +202,7 @@
     <div class="header">
       <div class="menu">功能目录</div>
       <a href="https://sds.ustc.edu.cn/main.htm">
-        <img src="static/images/dslogo.png" alt="" class="logo">
+        <img src="../static/images/dslogo.png" alt="" class="logo">
       </a>
       <div class="author">Zhang HaoQian</div>
     </div>
@@ -35,11 +219,11 @@
             <li class="nav-active"><a href="https://17roco.qq.com/index.html">官网首页</a></li>
             <li>
               <a href="table">活动资讯</a>
-              
+
             </li>
             <li><a href="#">宠物图鉴</a></li>
             <li><a href="http://my.4399.com/account/">论坛</a></li>
-            <li><a href="#">属性相克</a></li>
+            <li><a href="https://news.4399.com/luoke/xk/">属性相克</a></li>
             <li><a
                 href="https://tieba.baidu.com/f?dyTabStr=MCw2LDIsMSw0LDMsNSw3LDgsOQ%3D%3D&fr=ala0&kw=%C2%E5%BF%CB%CD%F5%B9%FA&tpl=5">百度贴吧</a>
             </li>
@@ -48,9 +232,9 @@
             </li>
             <li><a href="#">十二星宫</a></li>
             <li><a href="#">装备图鉴</a></li>
-            <li><a href="#">我的宠物</a></li>
             <li><a href="#">我的装备</a></li>
             <li><a href="#">活动进度</a></li>
+            <li><a href="manager">策划天地</a></li>
             <li><a href="login">登录</a></li>
           </ul>
           <div class="search">
@@ -58,22 +242,28 @@
           </div>
         </div>
         <div class="nav-list">
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640 (1).png" alt="">
           </a>
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640 (2).png" alt="">
           </a>
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640 (3).png" alt="">
           </a>
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640 (4).png" alt="">
           </a>
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640.jpeg" alt="">
           </a>
-          <a href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
+          <a
+            href="https://mp.weixin.qq.com/s?__biz=NjI3NDcxMDgx&mid=2651726991&idx=1&sn=76d9ce22e69178c39fcfbd2643955ffb&scene=45#wechat_redirect">
             <img src="../static/images/640.png" alt="">
           </a>
         </div>
@@ -87,21 +277,117 @@
       </div>
     </div>
     <!--轮播图结束-->
-    <!--主体开始-->
-    <div class="home">
-      <div class="wrap">
-        <!--宠物爆料开始-->
-          <div class="world">
-            
+    <div class="shell" id="shell">
+      <div class="hheader">
+
+      </div>
+      <div class="timeline">
+        <div class="item" data-text="Roco Kingdom">
+          <div class="content">
+            <img src="../static/images/time1.webp" alt="" class="img">
+            <h2 class="content-title">洛克王国上线-2010</h2>
+            <p class="content-desc">
+              《洛克王国》是由腾讯游戏魔方工作室群发行并运营的网页游戏,于2010年7月15日正式公测。在王国里，玩家们化身为一个个小魔法师，在王国里学习魔法，和心爱的宠物并肩战斗。游戏以收集和对战为主要玩法，玩家可以通过场景捕捉、完成任务活动等方式获得强大宠物，通过天梯赛、系别排位赛等赛事玩法相互切磋较量。
+            </p>
           </div>
-          <div class="world-title">
-              
+        </div>
+
+        <div class="item" data-text="Roco Kingdom">
+          <div class="content">
+            <img src="../static/images/time3.jpg" alt="" class="img">
+            <h2 class="content-title">光系上线-2012-2014</h2>
+            <p class="content-desc">
+              迪莫，艾米作为首批光系宠物上线洛克王国，凭借可爱的外形、神秘又强大的属性在网络迅速走红。作为第一只光系宠物，迪莫表情等周边产品也应运而生，并成为洛克王国的代表形象之一。洛克王国作为少年网络游戏也逐渐火爆。
+            </p>
           </div>
-        <!--宠物爆料结束-->
+        </div>
+
+        <div class="item" data-text="Roco Kingdom">
+          <div class="content">
+            <img src="../static/images/time11.webp" alt="" class="img">
+            <h2 class="content-title">十一周年庆-2021</h2>
+            <p class="content-desc">
+
+            </p>
+          </div>
+        </div>
+
+        <div class="item" data-text="Roco Kingdom">
+          <div class="content">
+            <img src="../static/images/time2.jpg" alt="" class="img">
+            <h2 class="content-title">洛克王国手游上线-2022</h2>
+            <p class="content-desc">
+              2020年，《洛克王国》同名手游新作研发启动。
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <!--主体结束-->
+    
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+
+    (function ($) {
+      $.fn.timeline = function () {
+        var selectors = {
+          id: $(this),
+          item: $(this).find(".item"),
+          activeClass: "item--active",
+          img: ".img"
+        };
+        selectors.item.eq(0).addClass(selectors.activeClass);
+        selectors.id.css(
+          "background-image",
+          "url(" +
+          selectors.item.first()
+            .find(selectors.img)
+            .attr("src") +
+          ")"
+        );
+        var itemLength = selectors.item.length;
+        //当页面滚动时，触发滚动事件
+        $(window).scroll(function(){
+          var max, min;
+          var pos = $(this).scrollTop();
+          selectors.item.each(function (i) {
+            min = $(this).offset().top;
+            max = $(this).height() + $(this).offset().top;
+            var that = $(this);
+            if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+              selectors.item.removeClass(selectors.activeClass);
+              selectors.id.css(
+
+                "background-image",
+                "url(" +
+                selectors.item.last()
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+              );
+              selectors.item.last().addClass(selectors.activeClass);
+            }
+            else if (pos <= max - 10 && pos >= min) {
+              selectors.id.cdd(
+
+                "background-image",
+                "url(" +
+                $(this)
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+              );
+              selectors.item.removeClass(selectors.activeClass);
+              $(this).addClass(selectors.activeClass);
+            }
+          })
+        });
+      };
+    })(jQuery)
+    $("#shell").timeline();
+  </script>
+
 </body>
 
 </html>

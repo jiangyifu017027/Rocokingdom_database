@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>活动资讯</title>
+  <title>My pet</title>
   <link rel="icon" href="../static/images/favicon.ico">
-  <link rel="stylesheet" href="">
   <style>
     * {
       margin: 0;
@@ -132,14 +131,15 @@
     }
 
     .button {
-      padding: 5px 0;
-      border-radius: 40px;
+      padding: 12px 28px;
+      border-radius: 10px;
       text-align: center;
 
     }
 
     .button:hover {
       cursor: pointer;
+      box-shadow: 0 0 20px #b7b2a9;
     }
 
     tr:nth-child(4n) .button {
@@ -166,7 +166,7 @@
 <body>
   <main class="table">
     <section class="header">
-      <h1>活动大全</h1>
+      <h1>宠物背包</h1>
       <div class="input-group">
         <input type="search" placeholder="Search Data...">
         <img src="../static/images/search_b180dd5.webp" alt="">
@@ -176,27 +176,32 @@
       <table>
         <thead>
           <tr>
-            <th>活动id</th>
-            <th>活动名称</th>
-            <th>活动奖励</th>
-            <th>奖励类型</th>
-            <th>参与</th>
+            <th>宠物ID</th>
+            <th>宠物名称</th>
+            <th>系别</th>
+            <th>种族值</th>
+            <th>血脉</th>
+            <th>技能</th>
+            <th>等级</th>
           </tr>
         </thead>
         <tbody>
-          {% for act in activities %}
+          {% for pet in pets %}
 
           <tr>
-            <th>{{ act.actiid }}</th>
-            <td>{{ act.actiname }}</td>
-            <td>{{ act.reward }}</td>
-            <td>{{ act.actitype }}</td>
+            <th>{{ pet.petid }}</th>
+            <td>{{ pet.petname }}</td>
+            <td>{{ pet.department }}</td>
+            <td>{{ pet.racevalue }}</td>
+            <td>{{ pet.bloodline }}</td>
+            <td>{{ pet.skill }}</td>
+            <td>100</td>
             <td>
-              <a href="input" class="button">参加</a>
+              <a href="https://news.4399.com/luoke/luokechongwu" class="button">详情
+              </a>
             </td>
           </tr>
           {% endfor %}
-
         </tbody>
       </table>
     </section>
