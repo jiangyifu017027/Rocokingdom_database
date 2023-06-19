@@ -14,8 +14,7 @@
 <body>
   <div class="box">
     <div class="content">
-      <img src="../static/images/640 (5).png" alt="Login" class="login-img images">
-      <img src="../statci/images/640 (6).png" alt="Register" class="register-img images">
+      <img src="../static/images/640 (6).png" alt="Register" class="register-img images">
       <div class="login-wrapper">
         <div class="top-tips">
           <span>
@@ -34,7 +33,7 @@
         <div class="register-form">
           <div class="userform form-item">
             <div class="text-tips">
-              <span>账号</span>
+            <span>账号</span>
             </div>
             <input type="text" name='name' id='name'>
           </div>
@@ -65,35 +64,16 @@
     </div>
 </body>
 <script>
-  let flag = 0;
-  document.querySelector('.top-tips-span').addEventListener('click', function () {
-    if (flag) {
-      document.querySelector('.content').classList.add("add-class-content");
-      document.querySelector('.login-img').classList.add("add-class-login-img");
-      document.querySelector('.register-img').classList.add("add-class-register-img");
-      document.querySelector('.login-img').classList.remove("add-class-login-img-show");
-      document.querySelector('.content').style.height = '90vh';
-      document.querySelector('.login-wrapper').style.height = '80vh';
-      document.querySelector('.login-form').style.display = 'none';
-      document.querySelector('.register-form').style.display = 'block';
-      document.querySelector('.top-tips-span').innerHTML = '登录';
-      document.querySelector('.h1-text').innerHTML = '注册';
-      flag = 0;
-    }
-    else {
-      document.querySelector('.content').classList.remove("add-class-content");
-      document.querySelector('.login-img').classList.remove("add-class-login-img");
-      document.querySelector('.register-img').classList.remove("add-class-register-img");
-      document.querySelector('.login-img').classList.add("add-class-login-img-show");
-      document.querySelector('.content').style.height = '85vh';
-      document.querySelector('.login-wrapper').style.height = '70vh';
-      document.querySelector('.login-form').style.display = 'block';
-      document.querySelector('.register-form').style.display = 'none';
-      document.querySelector('.top-tips-span').innerHTML = '注册';
-      document.querySelector('.h1-text').innerHTML = '登录';
-      flag = 1;
-    }
-  })
+    document.querySelector('.content').classList.add("add-class-content");
+    document.querySelector('.login-img').classList.add("add-class-login-img");
+    document.querySelector('.register-img').classList.add("add-class-register-img");
+    document.querySelector('.login-img').classList.remove("add-class-login-img-show");
+    document.querySelector('.content').style.height = '90vh';
+    document.querySelector('.login-wrapper').style.height = '80vh';
+    document.querySelector('.login-form').style.display = 'none';
+    document.querySelector('.register-form').style.display = 'block';
+    document.querySelector('.top-tips-span').innerHTML = '登录';
+    document.querySelector('.h1-text').innerHTML = '注册';
 </script>
 
 </html>

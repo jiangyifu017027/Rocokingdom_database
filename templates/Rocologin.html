@@ -15,7 +15,6 @@
   <div class="box">
     <div class="content">
       <img src="../static/images/640 (5).png" alt="Login" class="login-img images">
-      <img src="../statci/images/640 (6).png" alt="Register" class="register-img images">
       <div class="login-wrapper">
         <div class="top-tips">
           <span>
@@ -30,7 +29,6 @@
           <img src="../static/images/imlogo_b.png" alt="QQ登录">
           <span>使用QQ登录</span>
         </div>
-        {% if show_login %} <div id="login">
         <form method = "post">
         <div class="login-form">
           <div class="userform form-item">
@@ -54,8 +52,8 @@
           </div>
           <p><input type = "submit" value = "登录" /></p>
         </form>
-        </div>{% endif %}
         </div>
+      </div>
         {% if not show_login %} <div id="login"></div>
         <form method = "post">
         <div class="register-form">

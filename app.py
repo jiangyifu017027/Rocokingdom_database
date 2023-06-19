@@ -44,7 +44,7 @@ def register():
         gamename = request.form.get('gamename')
         conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
         cursor = conn.cursor()
-        sql = "INSERT INTO `player` (`id`, `gender`, `gameid`, `grade`, `family`, `password`) VALUES ('%s', 'man', '%s', 1200 , NULL,'%s');"%(name, passwd, gamename)
+        sql = "INSERT INTO `player` (`id`, `gender`, `gameid`, `grade`, `family`, `password`) VALUES ('%s', 'man', '%s', 1200 , NULL,'%s');"%(name, gamename, passwd)
         cursor.execute(sql)
         conn.commit()
         cursor.close()
