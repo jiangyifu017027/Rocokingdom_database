@@ -192,6 +192,74 @@
       }
 
     }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(90px);
+    }
+
+    .container a {
+      position: relative;
+      width: 160px;
+      height: 60px;
+      background: #fff;
+      margin: 20px;
+    }
+
+    .container a span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0e1538;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      color: #fff;
+      border: 1px solid #040a29;
+      overflow: hidden;
+    }
+
+    .container a span::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.075);
+      transform: skew(25deg);
+    }
+
+    .container a::before,
+    .container a::after {
+      content: '';
+      position: absolute;
+      background: #f00;
+      transition: 0.5s;
+
+    }
+
+    .container a:hover::before {
+      inset: -3px;
+    }
+
+    .container a:hover::after {
+      inset: -3px;
+      filter: blur(10px);
+    }
+
+    .container a:nth-child(1)::before,
+    .container a:nth-child(1)::after {
+      background: linear-gradient(45deg, #00ccff, #0e1538, #031538, #d400d4);
+    }
   </style>
 </head>
 
@@ -221,7 +289,7 @@
               <a href="table">活动资讯</a>
 
             </li>
-            <li><a href="#">宠物图鉴</a></li>
+            <li><a href="https://news.4399.com/luoke/luokechongwu/">宠物图鉴</a></li>
             <li><a href="http://my.4399.com/account/">论坛</a></li>
             <li><a href="https://news.4399.com/luoke/xk/">属性相克</a></li>
             <li><a
@@ -230,11 +298,10 @@
             <li><a
                 href="https://lewan.baidu.com/lewan?gameName=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD&type=11&gameId=129556370912165888&idfrom=5019&sid=">手游下载</a>
             </li>
-            <li><a href="#">十二星宫</a></li>
-            <li><a href="#">装备图鉴</a></li>
-            <li><a href="#">我的装备</a></li>
-            <li><a href="#">活动进度</a></li>
-            <li><a href="manager">策划天地</a></li>
+            <li><a href="https://www.bilibili.com/video/BV1d94y1d7uH/?vd_source=6192e1ef97c1eff05dc1588b380873d8">十二星宫</a></li>
+            <li><a href="http://news.7k7k.com/roco/20150424-714154.html">装备图鉴</a></li>
+            <li><a href="login">我的宠物</a></li>
+            <li><a href="table">活动进度</a></li>
             <li><a href="login">登录</a></li>
           </ul>
           <div class="search">
@@ -271,8 +338,15 @@
 
       </div>
       <div class="banner-box">
-        <img src="../static/images/8.jpg" alt="">
-        <div class="banner-bottom"></div>
+        <img src="../static/images/56.JPG" alt="">
+        <div class="banner-bottom">
+          <img src="../static/images/8.webp" alt="" class="grade">
+          <div class="container">
+            <a href="manager">
+              <span>策划入口</span>
+            </a>
+          </div>
+        </div>
         <div class="banner-logo"></div>
       </div>
     </div>
@@ -287,7 +361,7 @@
             <img src="../static/images/time1.webp" alt="" class="img">
             <h2 class="content-title">洛克王国上线-2010</h2>
             <p class="content-desc">
-              《洛克王国》是由腾讯游戏魔方工作室群发行并运营的网页游戏,于2010年7月15日正式公测。在王国里，玩家们化身为一个个小魔法师，在王国里学习魔法，和心爱的宠物并肩战斗。游戏以收集和对战为主要玩法，玩家可以通过场景捕捉、完成任务活动等方式获得强大宠物，通过天梯赛、系别排位赛等赛事玩法相互切磋较量。
+              《洛克王国》是由腾讯游戏魔方工作室群发行并运营的网页游戏，于2010年7月15日正式公测。在王国里，玩家们化身为一个个小魔法师，在王国里学习魔法，和心爱的宠物并肩战斗。游戏以收集和对战为主要玩法，玩家可以通过场景捕捉、完成任务活动等方式获得强大宠物，通过天梯赛、系别排位赛等赛事玩法相互切磋较量。
             </p>
           </div>
         </div>
@@ -307,7 +381,8 @@
             <img src="../static/images/time11.webp" alt="" class="img">
             <h2 class="content-title">十一周年庆-2021</h2>
             <p class="content-desc">
-
+              精灵王，腾讯游戏《洛克王国》十八系精灵的王者。从2012年1月起，每年寒暑假或特殊时期会在王国出现。
+              截至2021年12月，洛克王国共出现17系、19只精灵王，其中草系与土系精灵王为双生精灵王。自2018年8月起，每年寒暑假都会有旧版本的精灵王迎来重生。
             </p>
           </div>
         </div>
@@ -323,7 +398,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -348,13 +423,14 @@
         );
         var itemLength = selectors.item.length;
         //当页面滚动时，触发滚动事件
-        $(window).scroll(function(){
+        $(window).scroll(function () {
           var max, min;
           var pos = $(this).scrollTop();
           selectors.item.each(function (i) {
             min = $(this).offset().top;
             max = $(this).height() + $(this).offset().top;
             var that = $(this);
+            //
             if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
               selectors.item.removeClass(selectors.activeClass);
               selectors.id.css(
@@ -369,7 +445,7 @@
               selectors.item.last().addClass(selectors.activeClass);
             }
             else if (pos <= max - 10 && pos >= min) {
-              selectors.id.cdd(
+              selectors.id.css(
 
                 "background-image",
                 "url(" +

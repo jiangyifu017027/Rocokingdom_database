@@ -6,12 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roco</title>
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="icon" href="../static/images/favicon.ico">
 
 </head>
 
 <body>
+  <h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+    {% endwith %}
+    </h2>
   <div class="box">
     <div class="content">
       <img src="../static/images/640 (6).png" alt="Register" class="register-img images">
@@ -23,12 +34,12 @@
           <span class="top-tips-span">
           </span>
         </div>
-        <h2 class="h1-text">登录</h2>
+        <h2 class="h1-text">注册</h2>
         <div class="other-login">
           <img src="../static/images/imlogo_b.png" alt="QQ登录">
           <span>使用QQ登录</span>
         </div>
-        </div>
+        
         <form method = "post">
         <div class="register-form">
           <div class="userform form-item">
@@ -47,7 +58,7 @@
             <div class="text-tips">
               <span>确认密码</span>
             </div>
-            <input type="password" name='passwd' id='passwd'>
+            <input type="password" name='passwdnew' id='passwdnew'>
           </div>
 
           <div class="userform form-item">
@@ -60,20 +71,21 @@
           <p><input type = "submit" value = "注册" /></p>
         </div>
       </form>
+    </div>
       </div>
     </div>
 </body>
 <script>
-    document.querySelector('.content').classList.add("add-class-content");
-    document.querySelector('.login-img').classList.add("add-class-login-img");
-    document.querySelector('.register-img').classList.add("add-class-register-img");
-    document.querySelector('.login-img').classList.remove("add-class-login-img-show");
-    document.querySelector('.content').style.height = '90vh';
-    document.querySelector('.login-wrapper').style.height = '80vh';
-    document.querySelector('.login-form').style.display = 'none';
-    document.querySelector('.register-form').style.display = 'block';
-    document.querySelector('.top-tips-span').innerHTML = '登录';
-    document.querySelector('.h1-text').innerHTML = '注册';
+      document.querySelector('.content').classList.add("add-class-content");
+      document.querySelector('.login-img').classList.add("add-class-login-img");
+      document.querySelector('.register-img').classList.add("add-class-register-img");
+      document.querySelector('.login-img').classList.remove("add-class-login-img-show");
+      document.querySelector('.content').style.height = '90vh';
+      document.querySelector('.login-wrapper').style.height = '80vh';
+      document.querySelector('.login-form').style.display = 'none';
+      document.querySelector('.register-form').style.display = 'block';
+      document.querySelector('.top-tips-span').innerHTML = '登录';
+      document.querySelector('.h1-text').innerHTML = '注册';
 </script>
 
 </html>

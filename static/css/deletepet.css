@@ -3,7 +3,7 @@
   }
   
   body{
-    background: url(../images/57.jpg)
+    background: url(../images/1548815852123268.png)
     no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -15,9 +15,9 @@
     margin-top: -200px;
     left:50%;
     margin-left: -200px;
-    background-color: whitesmoke;
+    background-color: rgb(198, 144, 204);
     width: 400px;
-    height:400px;
+    height:300px;
     border-radius: 25px;
     text-align: center;
     padding: 5px 40px;
@@ -31,15 +31,15 @@
   }
   
   input{
-    background-color: whitesmoke;
+    background-color: rgb(212, 206, 215);
     width:100%;
     height: 48px;
     margin-bottom: 10px;
     border: none;
-    border-bottom: 2px  solid silver;
+    border-bottom: 2px  solid rgb(122, 72, 113);
     border-radius: 10px;
     outline:none;
-    font-size: 22px;
+    font-size: 18px;
   }
   
   

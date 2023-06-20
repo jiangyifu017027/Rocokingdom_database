@@ -38,7 +38,7 @@
   width: 55%;
   height: 90%;
   top: 5%;
-  opacity: 0;
+  opacity: 1;
   border-radius: 15%;
 }
 .box .content .login-wrapper {
@@ -100,12 +100,21 @@
   vertical-align: middle;
   transform: translateY(-60%);
 }
-.box .content .login-form, .box .content .register-form {
+.box .content .login-form{
   width: 100%;
 }
-.box .content .login-form .form-item .text-tips, .box .content .register-form .form-item .text-tips {
+.box .content .register-form{
+  width:100%;
+  transform: translateY(-40px);
+}
+.box .content .login-form .form-item .text-tips {
   color: rgb(123, 122, 123);
   margin: 15px;
+  transform: translateY(-120%);
+}
+.box .content .register-form .form-item .text-tips {
+  color: rgb(123, 122, 123);
+  margin: 5px;
   transform: translateY(-120%);
 }
 .box .content .login-form .form-item .forgot-password, .box .content .register-form .form-item .forgot-password {
@@ -120,7 +129,7 @@
 .box .content .login-form input, .box .content .register-form input {
   width: 100%;
   height: 50px;
-  margin: 15px 0;
+  margin: 5px 0;
   border-radius: 5px;
   border: 0;
   font-size: 17px;

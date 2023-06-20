@@ -206,3 +206,8 @@ ul.nodots {
   text-align: center;
 }
 /*宠物爆料样式结束*/
+.grade{
+  position: absolute;
+  left: 100px;
+  transform: translateY(80px);
+}

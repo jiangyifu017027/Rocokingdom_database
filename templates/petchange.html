@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/update.css">
+  <link rel="stylesheet" href="../static/css/petchange.css">
   <link rel="icon" href="../static/images/th.jpg">
   <title>录入</title>
 </head>
@@ -21,13 +21,16 @@
           </ul>
       {% endif %}
     {% endwith %}
-    </h2>
+  </h2>
   <form method = "post" class = login>
     <p>INPUT</p>
-    <input type="text" placeholder="活动ID" name='actiid' id='actiid'>
-    <input type="text" placeholder="活动名" name='actiname' id='actiname'>
-    <input type="text" placeholder="活动奖励" name='reward' id='reward'>
-    <input type="text" placeholder="奖励类型" name='actitype' id='actitype'>
+    <input type="text" placeholder="宠物ID" name='petid' id='petid'>
+    <input type="text" placeholder="宠物属性" name='department' id='department'>
+    <input type="text" placeholder="种族值" name='racevalue' id='racevalue'>
+    <input type="text" placeholder="血脉" name='bloodline' id='bloodline'>
+    <input type="text" placeholder="获得状态" name='acqstate' id='acqstate'>
+    <input type="text" placeholder="技能" name='skill' id='skill'>
+    <input type="text" placeholder="宠物名称" name='petname' id='petname'>
     <!--
       <input type="submit"
         class="btn" value="LOGIN">

@@ -12,6 +12,17 @@
 </head>
 
 <body>
+  <h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+  {% endwith %}
+  </h2>
   <div class="box">
     <div class="content">
       <img src="../static/images/640 (5).png" alt="Login" class="login-img images">
@@ -86,6 +97,7 @@
           <p><input type = "submit" value = "注册" /></p>
         </div>
       </form>
+    
       </div>{% endif %}
       </div>
     </div>
