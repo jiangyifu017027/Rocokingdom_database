@@ -42,7 +42,7 @@ def conn_DB2():
     global sql
     conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
     cursor = conn.cursor()
-    sql = 'select actiid,actiname,reward,actitype from activity'
+    sql = 'select `actiid`,`actiname`,`reward`,`actitype` from `activity`'
     cursor.execute(sql)
     list_data=[]
     data=cursor.fetchall()
@@ -59,7 +59,7 @@ def conn_DB3():
     global sql
     conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
     cursor = conn.cursor()
-    sql = 'insert into petbag(id,petid) values(%s,%s)'%(getid,getpetid)
+    sql = 'insert into `petbag`(`id`,`petid`) values("%s","%s")'%(getid,getpetid)
     cursor.execute(sql)
     conn.commit()
     cursor.close()
@@ -190,6 +190,39 @@ def conn_DB12(uppetid):
     conn.close()
     return data[0][0]
 
+def conn_DB13(upename):
+    global sql
+    conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+    cursor = conn.cursor()
+    sql = 'select exists (select `ename` from `equipment` where `ename`="%s");'%(upename)
+    cursor.execute(sql)
+    data=cursor.fetchall()
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return data[0][0]
+
+def conn_DB14(inquiryid):
+    global sql
+    conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+    cursor = conn.cursor()
+    sql = '''
+    select equipment.ename,equipment.etype,equipment.actiid
+    from player,equipment,equipbag
+    where player.id = equipbag.id and equipment.ename = equipbag.ename and player.id = %s
+    '''%(inquiryid)
+    cursor.execute(sql)
+    list_data=[]
+    data=cursor.fetchall()
+    for i in data:
+        dic={'ename':i[0], 'etype':i[1],'actiid':i[2]}
+        list_data.append(dic)
+    print(list_data)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return list_data
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -261,10 +294,21 @@ def input():
     if request.method =='POST':
         getid = request.form.get('name')
         getpetid = request.form.get('petname')
+        gettype = request.form.get('actitype')
         print(getid)
         print(getpetid)
-        conn_DB3()
-        return redirect(url_for("table"))
+        if gettype == "pet":
+            conn_DB3()
+            return redirect(url_for("table"))
+        else:
+            conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+            cursor = conn.cursor()
+            sql = 'insert into equipbag(`id`,`ename`) values("%s","%s")'%(getid,getpetid)
+            cursor.execute(sql)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return redirect(url_for("table"))
     return render_template("input.html")
 
 @app.route('/playerpet')
@@ -436,6 +480,32 @@ def passwdchange():
                 return redirect(url_for("login"))
     return render_template("passwdchange.html")
 
+@app.route("/updateequipment", methods=['POST','GET'])
+def updateequipment():
+    if request.method =='POST':
+        upename = request.form.get('ename')
+        upetype = request.form.get('etype')
+        upactiid = request.form.get('actiid')
+        data = conn_DB13(upename)
+        if data:
+            flash("This equipment has existed!", category="error")
+        else:
+            conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+            cursor = conn.cursor()
+            sql = "INSERT INTO `equipment`(`ename`,`etype`,`actiid`) VALUES ('%s','%s','%s');"%(upename,upetype,upactiid)
+            cursor.execute(sql)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return redirect(url_for("manager"))
+    return render_template("updateequipment.html")
+
+@app.route("/playerequipment")
+def playerequipment():
+    global inquiryid
+    inquiryid = session['id']
+    equipments = conn_DB14(inquiryid)
+    return render_template('playerequipment.html',equipments=equipments)
 
 if __name__ == '__main__':
     app.run(debug=True)

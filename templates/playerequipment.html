@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My pet</title>
+  <link rel="icon" href="../static/images/favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: bisque;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main.table {
+      width: 82vw;
+      height: 90vh;
+      background-color: #fff5;
+      box-shadow: 0 8px 16px #0005;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .header {
+      width: 100%;
+      height: 10%;
+      background-color: #fff4;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .header .input-group {
+      width: 35%;
+      height: 50%;
+      background-color: #fff5;
+      padding: 0 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .2s;
+
+    }
+
+    .header .input-group :hover {
+      width: 85%;
+      background-color: #fff8;
+      box-shadow: 0 5px 40px #0002;
+
+    }
+
+    .header .input-group img {
+      width: 20px;
+      height: 20px;
+      transform: translateY(-5%);
+      transform: translateX(50%);
+    }
+
+    .header.input-group input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+    }
+
+    .shell {
+      width: 95%;
+      max-height: calc(90% - 25px);
+      background-color: #fffb;
+      margin: 8px auto;
+      border-radius: 10px;
+      overflow: auto;
+      overflow: overlay;
+    }
+
+    .shell::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td img {
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      border-radius: 50%;
+      vertical-align: middle;
+
+    }
+
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+      padding: 20px;
+      text-align: left;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      left: 0;
+      background-color: #d5d1defe;
+      cursor: pointer;
+    }
+
+    /*偶数行背景色*/
+    tbody tr:nth-child(even) {
+      background-color: #0000000b;
+
+    }
+
+    tbody tr:hover {
+      background-color: #fff6 !important;
+    }
+
+    .button {
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-align: center;
+
+    }
+
+    .button:hover {
+      cursor: pointer;
+      box-shadow: 0 0 20px #b7b2a9;
+    }
+
+    tr:nth-child(4n) .button {
+      background-color: #86e49d;
+      color: #006b21;
+    }
+
+    tr:nth-child(4n-1) .button {
+      background-color: #ebc474;
+
+    }
+
+    tr:nth-child(4n+1) .button {
+      background-color: #d893a3;
+      color: #b30021;
+    }
+
+    tr:nth-child(4n+2) .button {
+      background-color: #6fcaea;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="table">
+    <section class="header">
+      <h1>装备背包</h1>
+      <div class="input-group">
+        <input type="search" placeholder="Search Data...">
+        <img src="../static/images/search_b180dd5.webp" alt="">
+      </div>
+    </section>
+    <section class="shell">
+      <table>
+        <thead>
+          <tr>
+            <th>装备名</th>
+            <th>装备类型</th>
+            <th>获得活动id</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for equipment in equipments %}
+
+          <tr>
+            <th>{{ equipment.ename }}</th>
+            <td>{{ equipment.etype }}</td>
+            <td>{{ equipment.actiid }}</td>
+            <td>
+              <a href="https://news.4399.com/luoke/luokechongwu" class="button">详情
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+
+</html>
