@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roco</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="icon" href="static/images/favicon.ico">
+
+</head>
+
+<body>
+  <h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+  {% endwith %}
+  </h2>
+  <div class="box">
+    <div class="content">
+      <img src="../static/images/640 (5).png" alt="Login" class="login-img images">
+      <div class="login-wrapper">
+        <div class="top-tips">
+          <span>
+            <h1>洛克王国信息平台</h1>
+          </span>
+        </div>
+        <h2 class="h1-text">登录</h2>
+        <div class="other-login">
+          <img src="../static/images/imlogo_b.png" alt="QQ登录">
+          <span>使用QQ登录</span>
+        </div>
+        <form method = "post">
+        <div class="login-form">
+          <div class="userform form-item">
+            <div class="text-tips">
+              <span>
+                <font size="5">账号</font>
+              </span>
+            </div>
+            <input type="text" name='name' id='name'>
+          </div>
+          <div class="password-form form-item">
+            <div class="text-tips">
+              <span>
+                <font size="5">密码</font>
+              </span>
+              <span class="forgot-password">
+                <font size="4">忘记密码</font>
+              </span>
+            </div>
+            <input type="password" name='passwd' id='passwd'>
+          </div>
+          <p><input type = "submit" value = "登录" /></p>
+        </form>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+</body>
+<script>
+  let flag = 1;
+  document.querySelector('.top-tips-span').addEventListener('click', function () {
+    if (flag) {
+      document.querySelector('.content').classList.add("add-class-content");
+      document.querySelector('.login-img').classList.add("add-class-login-img");
+      document.querySelector('.register-img').classList.add("add-class-register-img");
+      document.querySelector('.login-img').classList.remove("add-class-login-img-show");
+      document.querySelector('.content').style.height = '90vh';
+      document.querySelector('.login-wrapper').style.height = '80vh';
+      document.querySelector('.login-form').style.display = 'none';
+      document.querySelector('.register-form').style.display = 'block';
+      document.querySelector('.top-tips-span').innerHTML = '登录';
+      document.querySelector('.h1-text').innerHTML = '注册';
+      flag = 0;
+    }
+    else {
+      document.querySelector('.content').classList.remove("add-class-content");
+      document.querySelector('.login-img').classList.remove("add-class-login-img");
+      document.querySelector('.register-img').classList.remove("add-class-register-img");
+      document.querySelector('.login-img').classList.add("add-class-login-img-show");
+      document.querySelector('.content').style.height = '85vh';
+      document.querySelector('.login-wrapper').style.height = '70vh';
+      document.querySelector('.login-form').style.display = 'block';
+      document.querySelector('.register-form').style.display = 'none';
+      document.querySelector('.top-tips-span').innerHTML = '注册';
+      document.querySelector('.h1-text').innerHTML = '登录';
+      flag = 1;
+    }
+  })
+</script>
+
+</html>

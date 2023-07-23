@@ -223,6 +223,55 @@ def conn_DB14(inquiryid):
     conn.close()
     return list_data
 
+def conn_DB15():
+    global sql
+    conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+    cursor = conn.cursor()
+    sql = 'select manaid, manapasswd from manager'
+    cursor.execute(sql)
+    list_data=[]
+    data=cursor.fetchall()
+    for i in data:
+        dic={'用户名':i[0], '密码':i[1]}
+        list_data.append(dic)
+    print(list_data)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return list_data
+
+def conn_DB16(name):
+    global sql
+    conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+    cursor = conn.cursor()
+    sql = '''
+    select manaid from manager where manaid = %s
+    '''
+    cursor.execute(sql,(name))
+    data=cursor.fetchall()
+    print(data[0][0])
+    print(type(data))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return data[0][0]
+
+def conn_DB17(name):
+    global sql
+    conn = pymysql.connect(host="localhost", port=3306, user="root", password="123456", db="lkwg", charset="gb2312")
+    cursor = conn.cursor()
+    sql = '''
+    select manaid from manager where manaid = %s
+    '''
+    cursor.execute(sql,(name))
+    data=cursor.fetchall()
+    print(data[0][0])
+    print(type(data))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return data[0][0]
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -318,9 +367,31 @@ def playerpet():
     pets = conn_DB6(inquiryid)
     return render_template('pet.html',pets=pets)
 
-@app.route("/manager")
-def manager():
+@app.route("/managerself")
+def managerself():
+    mananame = session["mananame"]
     return render_template("managerself.html")
+
+
+@app.route("/managerlogin", methods=['POST','GET'])
+def managerlogin():
+    loginbool = False
+    if request.method =='POST':
+        name = request.form.get('name')
+        passwd = request.form.get('passwd')
+        data = conn_DB15()
+        data1 = conn_DB16(name)
+        data2 = conn_DB17(name)
+        session['mananame'] = data1 #昵称
+        session['manaid'] = data2 #id
+        for temp in data:
+            print(temp['用户名'], temp['密码'])
+            if temp['用户名'] == name and temp['密码']==passwd:
+                return redirect(url_for("managerself"))
+                loginbool = True
+        if loginbool == False:
+            flash("Invalid id or password!", category="error")
+    return render_template("managerlogin.html")
 
 @app.route("/updateacti", methods=['POST','GET'])
 def updateacti():
